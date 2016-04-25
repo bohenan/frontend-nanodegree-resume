@@ -140,10 +140,12 @@ ul {
 }
 
 .biopic {
-  float: left;
+  /*float: left;*/
+  float: right;
   padding: 10px;
   width: 200px;
-  display: none;
+  /*display: none;*/
+  display: block;
 }
 
 img {
@@ -211,6 +213,9 @@ span {
   #skillsH3,
   .biopic {
     display: block;
+  }
+  .biopic{
+    float: left;
   }
 }
 
