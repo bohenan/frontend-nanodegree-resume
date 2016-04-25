@@ -138,6 +138,8 @@ work.display=function(){
 		$(".work-entry:last").append(foret);
 		var fordate = HTMLworkDates.replace("%data%",job.dates);
 		$(".work-entry:last").append(fordate);
+		var foloca = HTMLworkLocation.replace("%data%",job.location);
+		$(".work-entry:last").append(foloca);
 		var fordes = HTMLworkDescription.replace("%data%",job.description);
 		$(".work-entry:last").append(fordes);
 	});
