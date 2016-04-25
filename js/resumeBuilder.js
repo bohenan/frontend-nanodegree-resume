@@ -116,18 +116,31 @@ bio.display=function(){
 }
 
 // display the work information
+// work.display=function(){
+// 	for(var job in work.jobs){
+// 		$("#workExperience").append(HTMLworkStart);
+// 		var foremop = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+// 		var fortit = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+// 		var foret = foremop+fortit;
+// 		$(".work-entry:last").append(foret);
+// 		var fordate = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+// 		$(".work-entry:last").append(fordate);
+// 		var fordes = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+// 		$(".work-entry:last").append(fordes);
+// 	}
+// }
 work.display=function(){
-	for(job in work.jobs){
+	work.jobs.forEach(function(job){
 		$("#workExperience").append(HTMLworkStart);
-		var foremop = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-		var fortit = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+		var foremop = HTMLworkEmployer.replace("%data%",job.employer);
+		var fortit = HTMLworkTitle.replace("%data%",job.title);
 		var foret = foremop+fortit;
 		$(".work-entry:last").append(foret);
-		var fordate = HTMLworkDates.replace("%data%",work.jobs[job].dates);
+		var fordate = HTMLworkDates.replace("%data%",job.dates);
 		$(".work-entry:last").append(fordate);
-		var fordes = HTMLworkDescription.replace("%data%",work.jobs[job].description);
+		var fordes = HTMLworkDescription.replace("%data%",job.description);
 		$(".work-entry:last").append(fordes);
-	}
+	});
 }
 
 //display the projects information
