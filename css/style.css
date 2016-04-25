@@ -17,7 +17,15 @@ h1 {
   font-size: 40px;
   color: #F5A623;
   line-height: 48px;
-  display: inline;
+  /*display: inline;*/
+  display: block;
+}
+
+#name+span{
+  color:#9aece1;
+  font-size: 1.2em;
+  font-family: Helvetica, sans-serif;
+  font-style: italic;
 }
 
 h2 {
@@ -87,8 +95,11 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  /*color: #F5AE23;*/
+  color:#9aece1;
   display: none;
+  /*make the header center algined*/
+  text-align: center;
 }
 
 .orange {
