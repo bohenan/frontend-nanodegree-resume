@@ -8,8 +8,8 @@ var bio={
 		"twitter": "@itachi",
 		"location": "Chicago"
 	},
-	//"bioPic": "https://s-media-cache-ak0.pinimg.com/236x/52/74/0f/52740f7a75720a4576d1bd0613e3a3a1.jpg",
-	"bioPic": "http://quotes2read.com/wp-content/uploads/2015/07/Uchiha.Itachi.full_.716851.jpg",
+	//"biopic": "https://s-media-cache-ak0.pinimg.com/236x/52/74/0f/52740f7a75720a4576d1bd0613e3a3a1.jpg",
+	"biopic": "http://quotes2read.com/wp-content/uploads/2015/07/Uchiha.Itachi.full_.716851.jpg",
 	"welcomeMessage": "An apple a day keeps the doctor away!",
 	"skills":["C++","JavaScript","SQL", "Python"]
 };
@@ -20,7 +20,7 @@ var education={
 			"name":"University One",
 			"location":"Chicago",
 			"degree": "Master",
-			"major": ["CS"],
+			"majors": ["CS"],
 			"dates": "2013 - 2015",
 			"url": "http://example1.com"
 		},
@@ -28,7 +28,7 @@ var education={
 			"name":"University Two",
 			"location":"New York",
 			"degree": "BA",
-			"major": ["EE"],
+			"majors": ["EE"],
 			"dates": "2008 - 2011",
 			"url": "http://example2.com"
 		}
@@ -36,8 +36,8 @@ var education={
 	"onlineCourses":[
 		{
 			"title": "JavaScript",
-			"School": "Udacity",
-			"dates": "2014 - 2015",
+			"school": "Udacity",
+			"date": "2014 - 2015",
 			"url": "http://wwww.udacity.com"
 		}
 	]
@@ -50,7 +50,13 @@ var work={
 			"title": "Deliver Boy",
 			"dates": "January 2000 - Future",
 			"location": "New York",
-			"description": "A number of variants of the rhyme were in circulation around the turn of the 20th century. In 1913, Elizabeth Wright recorded a Devonian dialect version and also the first known mention of the version we use now, in Rustic Speech and Folk-lore. Apples have a good claim to promote health. They contain Vitamin C, which aids the immune system, and phenols, which reduce cholesterol."
+			"description": "A number of variants of the rhyme were in" +
+			" circulation around the turn of the 20th century."+
+			" In 1913, Elizabeth Wright recorded a Devonian dialect version"+
+			" and also the first known mention of the version we use now, in"+
+			" Rustic Speech and Folk-lore. Apples have a good claim to "+
+			"promote health. They contain Vitamin C, which aids the immune "+
+			"system, and phenols, which reduce cholesterol."
 		},
 		{
 			"employer":"Facebook",
@@ -63,7 +69,7 @@ var work={
 }
 
 var projects={
-	"project":[
+	"projects":[
 		{
 			"title": "Sample Project 1",
 			"dates": "2014 - December 31, 2099",
@@ -80,7 +86,7 @@ var projects={
 bio.display=function(){
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -127,17 +133,17 @@ work.display=function(){
 //display the projects information
 projects.display=function(){
 
-	for(i in projects.project){
+	for(i in projects.projects){
 		$("#projects").append(HTMLprojectStart);
-		var pt = HTMLprojectTitle.replace("%data%",projects.project[i].title);
-		var pdates = HTMLprojectDates.replace("%data%",projects.project[i].dates);
-		var pdes = HTMLprojectDescription.replace("%data%",projects.project[i].description);
+		var pt = HTMLprojectTitle.replace("%data%",projects.projects[i].title);
+		var pdates = HTMLprojectDates.replace("%data%",projects.projects[i].dates);
+		var pdes = HTMLprojectDescription.replace("%data%",projects.projects[i].description);
 		$(".project-entry:last").append(pt);
 		$(".project-entry:last").append(pdates);
 		$(".project-entry:last").append(pdes);
-		if(projects.project[i].images.length>0){
-			for(j in projects.project[i].images){
-				var pimg=HTMLprojectImage.replace("%data%",projects.project[i].images[j]);
+		if(projects.projects[i].images.length>0){
+			for(j in projects.projects[i].images){
+				var pimg=HTMLprojectImage.replace("%data%",projects.projects[i].images[j]);
 				$(".project-entry:last").append(pimg);
 			}
 		}
@@ -156,9 +162,9 @@ education.display=function(){
 		$(".education-entry:last").append(sND);
 		$(".education-entry:last").append(sdate);
 		$(".education-entry:last").append(slocation);
-		if(education.schools[i].major.length>0){
-			for(j in education.schools[i].major){
-				var smajor= HTMLschoolMajor.replace('%data%',education.schools[i].major[j]);
+		if(education.schools[i].majors.length>0){
+			for(j in education.schools[i].majors){
+				var smajor= HTMLschoolMajor.replace('%data%',education.schools[i].majors[j]);
 				$(".education-entry:last").append(smajor);
 			}
 		}
@@ -168,9 +174,9 @@ education.display=function(){
 	for(var a in education.onlineCourses){
 		$('#education').append(HTMLschoolStart);
 		var otitle=HTMLonlineTitle.replace('%data%',education.onlineCourses[a].title);
-		var oschool = HTMLonlineSchool.replace('%data%',education.onlineCourses[a].School);
+		var oschool = HTMLonlineSchool.replace('%data%',education.onlineCourses[a].school);
 		var otisc = otitle+oschool;
-		var odate = HTMLonlineDates.replace('%data%',education.onlineCourses[a].dates);
+		var odate = HTMLonlineDates.replace('%data%',education.onlineCourses[a].date);
 		var ourl = HTMLonlineURL.replace('%data%',education.onlineCourses[a].url);
 		$(".education-entry:last").append(otisc);
 		$(".education-entry:last").append(odate);
