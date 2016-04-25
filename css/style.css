@@ -120,10 +120,10 @@ a {
 }
 
 .flex-box {
-  display: -webkit-flex;
+/*  display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap;*/
   justify-content: space-around;
   padding: 10px;
 }
@@ -213,3 +213,17 @@ span {
     display: block;
   }
 }
+
+@media only screen and (min-width: 707px){
+  .flex-box{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   } 
+}
+
+
+
+
+
